@@ -6,11 +6,18 @@ def get_majority_element(a, left, right):
         return -1
     if left + 1 == right:
         return a[left]
+    if left + 2 == right:
+        if a[1]==a[0]:
+            return 0
+        else:
+            return -1
     a.sort()
     right=right-1
-    tag_=a[floor(len(a)/2)]
+    tag_=a[ceil(right/2)]
     left1,right1=left,floor(right/2)
     left2,right2=ceil(right/2),right
+    len1_=ceil(right/2)
+    len2_=ceil(right/2)
     if a[left1]==tag_:
         len1_=left1
     else:
